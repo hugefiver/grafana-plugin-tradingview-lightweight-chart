@@ -1,10 +1,20 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { AlertErrorPayload, AlertPayload, AppEvents, PanelProps } from '@grafana/data'
 import { Alert, useStyles2, useTheme2 } from '@grafana/ui'
 
 import { css, cx } from '@emotion/css'
-import { createChart, IChartApi, CandlestickSeries, SeriesDataItemTypeMap, ISeriesApi, CandlestickData, UTCTimestamp, LineSeries, SeriesOptionsMap, LineData } from 'lightweight-charts'
+import {
+  createChart,
+  IChartApi,
+  CandlestickSeries,
+  ISeriesApi,
+  CandlestickData,
+  UTCTimestamp,
+  LineSeries,
+  SeriesOptionsMap,
+  LineData,
+} from 'lightweight-charts'
 import { TvOptions } from 'types'
 import { getAppEvents } from '@grafana/runtime'
 
@@ -37,29 +47,37 @@ const getStyles = () => {
 
 type Props = PanelProps<TvOptions>
 
-export default function TvPanel({ options, data, width, height, fieldConfig, id, timeZone, timeRange }: Readonly<Props>) {
+export default function TvPanel({
+  options,
+  data,
+  width,
+  height,
+  fieldConfig,
+  id,
+  timeZone,
+  timeRange,
+}: Readonly<Props>) {
   const styles = useStyles2(getStyles)
   const theme = useTheme2()
 
-
-  const [error, setError] = useState<Error | undefined>();
-  const [themeError, setThemeError] = useState<Error | undefined>();
-
+  const [error, setError] = useState<Error | undefined>()
+  const [themeError, setThemeError] = useState<Error | undefined>()
 
   /**
    * Events
    */
-  const appEvents = getAppEvents();
-  const notifySuccess = (payload: AlertPayload) => appEvents.publish({ type: AppEvents.alertSuccess.name, payload });
-  const notifyError = (payload: AlertErrorPayload) => appEvents.publish({ type: AppEvents.alertError.name, payload });
-
+  const appEvents = getAppEvents()
+  const notifySuccess = (payload: AlertPayload) => appEvents.publish({ type: AppEvents.alertSuccess.name, payload })
+  const notifyError = (payload: AlertErrorPayload) => appEvents.publish({ type: AppEvents.alertError.name, payload })
 
   const containerRef = useRef<HTMLDivElement>(null)
   const chartRef = useRef<IChartApi | null>(null)
   const chartSeriesRef = useRef<Array<ISeriesApi<keyof SeriesOptionsMap>>>([])
 
   useEffect(() => {
-    if (!containerRef.current) { return }
+    if (!containerRef.current) {
+      return
+    }
 
     if (chartRef.current) {
       chartRef.current.remove()
@@ -82,11 +100,11 @@ export default function TvPanel({ options, data, width, height, fieldConfig, id,
       localization: {
         // dateFormat: 'yyyy-MM-dd',
         timeFormatter: (timestamp: UTCTimestamp | string) => {
-          let date: Date;
+          let date: Date
           if (typeof timestamp === 'string') {
-            date = new Date(timestamp);
+            date = new Date(timestamp)
           } else {
-            date = new Date(timestamp * 1000);
+            date = new Date(timestamp * 1000)
           }
 
           return date.toLocaleString(navigator.language, {
@@ -97,8 +115,8 @@ export default function TvPanel({ options, data, width, height, fieldConfig, id,
             minute: '2-digit',
             second: '2-digit',
             timeZone: timeZone === 'browser' ? Intl.DateTimeFormat().resolvedOptions().timeZone : timeZone,
-          });
-        }
+          })
+        },
       },
     })
     chartRef.current = chart
@@ -115,7 +133,7 @@ export default function TvPanel({ options, data, width, height, fieldConfig, id,
   useEffect(() => {
     if (data.state !== 'Done' || !chartRef.current) {
       if (chartSeriesRef.current.length > 0) {
-        chartSeriesRef.current.forEach(series => chartRef.current?.removeSeries(series))
+        chartSeriesRef.current.forEach((series) => chartRef.current?.removeSeries(series))
         chartSeriesRef.current = []
       }
       return
@@ -132,11 +150,16 @@ export default function TvPanel({ options, data, width, height, fieldConfig, id,
     for (const series of data.series) {
       const fields = series.fields
 
-      const candleFieldNames = [options.openField || 'open', options.highField || 'high', options.lowField || 'low', options.closeField || 'close']
+      const candleFieldNames = [
+        options.openField || 'open',
+        options.highField || 'high',
+        options.lowField || 'low',
+        options.closeField || 'close',
+      ]
       let isCandleSeries = false
 
       if (!foundCandleSeries) {
-        isCandleSeries = candleFieldNames.every(name => fields.some(f => f.name.toLowerCase() === name))
+        isCandleSeries = candleFieldNames.every((name) => fields.some((f) => f.name.toLowerCase() === name))
         if (isCandleSeries) {
           foundCandleSeries = true
         }
@@ -149,26 +172,26 @@ export default function TvPanel({ options, data, width, height, fieldConfig, id,
           if (isNaN(tts)) {
             return ts
           }
-          ts = tts;
+          ts = tts
         }
         if (ts < 1e11) {
-          return ts as UTCTimestamp;
+          return ts as UTCTimestamp
         } else {
-          return (ts / 1000) as UTCTimestamp;
+          return (ts / 1000) as UTCTimestamp
         }
       }
 
       if (isCandleSeries) {
-        const timeField = fields.find(f => f.name.toLowerCase() === (options.timeField || 'time').toLowerCase())
-        const openField = fields.find(f => f.name.toLowerCase() === (options.openField || 'open').toLowerCase())
-        const highField = fields.find(f => f.name.toLowerCase() === (options.highField || 'high').toLowerCase())
-        const lowField = fields.find(f => f.name.toLowerCase() === (options.lowField || 'low').toLowerCase())
-        const closeField = fields.find(f => f.name.toLowerCase() === (options.closeField || 'close').toLowerCase())
+        const timeField = fields.find((f) => f.name.toLowerCase() === (options.timeField || 'time').toLowerCase())
+        const openField = fields.find((f) => f.name.toLowerCase() === (options.openField || 'open').toLowerCase())
+        const highField = fields.find((f) => f.name.toLowerCase() === (options.highField || 'high').toLowerCase())
+        const lowField = fields.find((f) => f.name.toLowerCase() === (options.lowField || 'low').toLowerCase())
+        const closeField = fields.find((f) => f.name.toLowerCase() === (options.closeField || 'close').toLowerCase())
         // const volumeField = fields.find(f => f.name.toLowerCase() === (options.volumeField || 'volume').toLowerCase())
 
         if (!timeField || !openField || !highField || !lowField || !closeField) {
-          notifyError(['Missing required fields for candlestick series:']);
-          continue;
+          notifyError(['Missing required fields for candlestick series:'])
+          continue
         }
 
         const data: CandlestickData[] = []
@@ -177,22 +200,22 @@ export default function TvPanel({ options, data, width, height, fieldConfig, id,
           let time
           switch (timeField.type) {
             case 'number':
-              time = normalizeTimestamp(timeField.values[j]);
-              break;
+              time = normalizeTimestamp(timeField.values[j])
+              break
             case 'string':
-              time = timeField.values[j] as string;
-              break;
+              time = timeField.values[j] as string
+              break
             case 'time':
-              time = normalizeTimestamp(timeField.values[j]);
-              break;
+              time = normalizeTimestamp(timeField.values[j])
+              break
             default:
-              notifyError(['Unsupported time field type']);
-              continue;
+              notifyError(['Unsupported time field type'])
+              continue
           }
 
           if (time === undefined) {
-            notifyError(['Invalid time value']);
-            continue;
+            notifyError(['Invalid time value'])
+            continue
           }
 
           data.push({
@@ -206,22 +229,21 @@ export default function TvPanel({ options, data, width, height, fieldConfig, id,
         const s = chart.addSeries(CandlestickSeries, {
           upColor: 'green',
           downColor: 'red',
-
         })
         s.setData(data)
         chartSeriesRef.current.push(s)
       }
 
-
-      const timeField = fields.find(f => f.name.toLowerCase() === (options.timeField || 'time').toLowerCase())
+      const timeField = fields.find((f) => f.name.toLowerCase() === (options.timeField || 'time').toLowerCase())
       const otherFields = fields.filter(
-        f => (f.name.toLowerCase() !== (options.timeField || 'time').toLowerCase()) &&
+        (f) =>
+          f.name.toLowerCase() !== (options.timeField || 'time').toLowerCase() &&
           !(isCandleSeries && candleFieldNames.includes(f.name.toLowerCase())) &&
           f.type === 'number'
       )
 
       if (!timeField && otherFields.length > 0) {
-        notifyError(['missing time field']);
+        notifyError(['missing time field'])
         continue
       } else if (otherFields.length === 0) {
         continue
@@ -237,22 +259,22 @@ export default function TvPanel({ options, data, width, height, fieldConfig, id,
           let time
           switch (tf.type) {
             case 'number':
-              time = normalizeTimestamp(tf.values[j]);
-              break;
+              time = normalizeTimestamp(tf.values[j])
+              break
             case 'string':
-              time = tf.values[j] as string;
-              break;
+              time = tf.values[j] as string
+              break
             case 'time':
-              time = normalizeTimestamp(tf.values[j]);
-              break;
+              time = normalizeTimestamp(tf.values[j])
+              break
             default:
-              notifyError(['Unsupported time field type']);
-              continue;
+              notifyError(['Unsupported time field type'])
+              continue
           }
 
           if (time === undefined) {
-            notifyError(['Invalid time value']);
-            continue;
+            notifyError(['Invalid time value'])
+            continue
           }
           const item = {
             time,
@@ -270,7 +292,7 @@ export default function TvPanel({ options, data, width, height, fieldConfig, id,
 
     return () => {
       if (chartSeriesRef.current.length > 0) {
-        chartSeriesRef.current.forEach(series => chart.removeSeries(series))
+        chartSeriesRef.current.forEach((series) => chart.removeSeries(series))
         chartSeriesRef.current = []
       }
       chartRef.current = null
@@ -302,6 +324,5 @@ export default function TvPanel({ options, data, width, height, fieldConfig, id,
         <div ref={containerRef} className={cx(styles.wrapper, styles.container)} />
       </div>
     </>
-
   )
 }
