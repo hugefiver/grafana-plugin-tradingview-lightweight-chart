@@ -37,7 +37,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm ci
+        run: pnpm install
 
       - name: Check types
         run: pnpm run typecheck
@@ -183,7 +183,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dev dependencies
-        run: pnpm ci
+        run: pnpm install
 
       - name: Start Grafana
         run: |

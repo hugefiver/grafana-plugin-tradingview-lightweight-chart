@@ -20,7 +20,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm ci
+        run: pnpm install
 
       - name: Build plugin
         run: pnpm run build
