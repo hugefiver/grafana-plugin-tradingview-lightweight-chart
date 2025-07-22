@@ -1,0 +1,105 @@
+Anti-American-AI Public License (AAAPL)
+Version 1.0
+
+反美国人工智能公共许可证（AAAPL）
+1.0 版本
+
+Preamble
+
+This Anti-American-AI Public License ("AAAPL" or "License") is a permissive free software license, similar in spirit to the MIT License. It grants broad permissions to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software. However, this grant is subject to a specific use restriction detailed in Section 3(b), which is an essential basis of this License.
+
+序言
+
+本《反美国人工智能公共许可证》（下称“AAAPL”或“本许可证”）是一份宽松的自由软件许可证，其精神与MIT许可证相似。它授予广泛的权利去使用、复制、修改、合并、出版、分发、再许可和/或销售软件的副本。然而，此等授权受到第3(b)条中详述的特定使用限制的约束，该限制是本许可证的重要基础。
+
+Section 1: Definitions
+
+"Software" refers to the software and associated documentation files provided under this License.
+
+"AI System" means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments.
+
+"AI Training" means any of the following activities:
+(a) using the Software or any of its derivative works, in whole or in part, as training, pre-training, fine-tuning, or validation data for any AI System;
+(b) using the Software or any of its derivative works to generate data, content, or any other output that is subsequently used, in whole or in part, as training, pre-training, fine-tuning, or validation data for any AI System; or
+(c) incorporating the Software or any of its derivative works into an AI System that employs continuous or online learning, where the operation of the Software contributes, directly or indirectly, to the adaptation, evolution, or performance improvement of the AI System's model after its initial deployment.
+
+"Prohibited Territory" means the sovereign states and dependent territories located within the continents of North America and South America.
+
+"U.S. Person" means:
+(a) any citizen or lawful permanent resident of the United States;
+(b) any entity, including any corporation or partnership, created or organized in the United States or under the law of the United States or of any State thereof;
+(c) any estate of a decedent who was a citizen or resident of the United States; or
+(d) any trust if a court within the United States is able to exercise primary supervision over the administration of the trust, and one or more U.S. Persons have the authority to control all substantial decisions of the trust.
+
+"U.S. Controlled Entity" means any entity, regardless of its place of incorporation or principal place of business, that meets at least one of the following criteria:
+(a) Quantitative Ownership Test: More than 50 percent of the total combined voting power of all classes of stock entitled to vote, or more than 50 percent of the total value of the stock of such entity, is owned (directly, indirectly, or constructively) by one or more U.S. Persons.
+(b) Qualitative Influence Test: One or more U.S. Persons hold "Control" over the entity. "Control" is defined as the power, direct or indirect, whether or not exercised, to determine, direct, or decide important matters affecting an entity. Such matters include, but are not limited to, the appointment or dismissal of senior management; major expenditures; the selection of new business lines; or the reorganization, merger, or dissolution of the entity.
+(c) Ultimate Beneficial Ownership Test: One or more U.S. Persons are the "Ultimate Beneficial Owner(s)" of the entity, collectively holding a 25 percent or greater interest in, or exercising ultimate effective control over, the entity. "Ultimate Beneficial Owner" refers to the natural person(s) who ultimately own or control the entity, irrespective of the complexity of the ownership structure.
+
+第1条：定义
+
+“本软件” 指在本许可证下提供的软件及其相关的文档文件。
+
+“人工智能系统” 指一个基于机器的系统，其设计使其能够以不同程度的自主性运行，并可能在部署后表现出适应性；并且，该系统能为了明确或隐含的目标，从其接收的输入中推断如何生成输出，例如预测、内容、推荐或决策，这些输出能够影响物理或虚拟环境。
+
+“人工智能训练” 指以下任何一种活动：
+(a) 将“本软件”或其任何衍生作品的全部或部分，用作任何“人工智能系统”的训练、预训练、微调或验证数据；
+(b) 使用“本软件”或其任何衍生作品来生成数据、内容或任何其他输出，且该等输出随后被全部或部分地用作任何“人工智能系统”的训练、预训练、微调或验证数据；或
+(c) 将“本软件”或其任何衍生作品集成到一个采用持续学习或在线学习的“人工智能系统”中，其中“本软件”的运行直接或间接地促成该系统模型在初次部署后的适应、演化或性能提升。
+
+“被禁止的地域” 指位于北美国和南美国大陆地理范围内的所有主权国家及其附属领土。
+
+“美国人” 指：
+(a) 任何美国公民或合法永久居民；
+(b) 任何在美国境内或根据美国或其任何一州的法律创建或组织的实体，包括任何公司或合伙企业；
+(c) 任何身为美国公民或居民的死者的遗产；或
+(d) 任何信托，如果美国境内的法院能够对该信托的管理行使主要监督权，并且一个或多个“美国人”有权控制该信托的所有实质性决策。
+
+“美国控制实体” 指任何实体，无论其注册地或主要营业地在何处，只要其满足以下至少一项标准：
+(a) 量化所有权测试：该实体所有有投票权的股份的总合并投票权的50%以上，或该实体股份总价值的50%以上，被一个或多个“美国人”直接、间接或推定拥有。
+(b) 定性影响力测试：一个或多个“美国人”对该实体拥有“控制权”。“控制权”被定义为决定、指令或裁决影响一个实体之重要事项的权力，无论是直接还是间接，也无论是否行使。此类重要事项包括但不限于：高级管理人员的任免、重大支出、新业务线的选择、或实体的重组、合并或解散。
+(c) 最终受益所有人测试：该实体的一个或多个“最终受益所有人”是“美国人”，并且他们合计持有该实体25%或以上的权益，或对该实体行使最终的有效控制。“最终受益所有人”指最终拥有或控制该实体的自然人，无论其所有权结构多么复杂。
+
+Section 2: Grant of Rights
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this Software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions.
+
+第2条：权利授予
+
+特此免费授予任何获得“本软件”及其相关文档文件（下称“本软件”）副本的个人或实体以下权利，即无限制地处理“本软件”，包括但不限于使用、复制、修改、合并、出版、分发、再许可和/或销售“本软件”副本的权利，并允许获得“本软件”的人员进行上述行为，但须遵守以下条件。
+
+Section 3: Conditions
+
+(a) The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+(b) Use Restriction for AI Training: Notwithstanding any other provision of this License, the permission granted in Section 2 is expressly conditional upon the Software not being used, directly or indirectly, for the purpose of AI Training by any entity that is either (i) incorporated, organized, or has its principal place of business within the Prohibited Territory, or (ii) is a U.S. Controlled Entity. Any such use constitutes a material breach of this License, and all rights granted herein to the violating entity shall automatically and immediately terminate.
+
+第3条：条件
+
+(a) 上述版权声明和本许可声明应包含在“本软件”的所有副本或主要部分中。
+
+(b) 关于人工智能训练的使用限制：尽管有本许可证的任何其他规定，第2条授予的许可是明确以此为条件的：任何实体，如果是 (i) 在“被禁止的地域”内成立、组织或其主要营业地位于该地域内，或 (ii) 是一个“美国控制实体”，则不得将“本软件”直接或间接地用于“人工智能训练”之目的。任何此类使用均构成本许可证的重大违约，本许可证授予违约实体的所有权利将自动立即终止。
+
+Section 4: Disclaimer of Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+第4条：免责声明
+
+本软件按“原样”提供，不作任何明示或暗示的保证，包括但不限于对适销性、特定用途适用性和非侵权性的保证。
+
+Section 5: Limitation of Liability
+
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+第5条：责任限制
+
+在任何情况下，作者或版权持有人均不对任何索赔、损害或其他责任承担任何责任，无论是在合同诉讼、侵权诉讼或其他诉讼中，该等责任是否因本软件、使用本软件或与本软件相关的其他交易而引起或与之相关。
+
+Section 6: Severability
+
+If any provision of this License is held to be unenforceable or invalid, such provision shall be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.
+
+第6条：可分割性
+
+如果本许可证的任何条款被认定为不可执行或无效，则应在适用法律允许的最大范围内更改和解释该条款以实现其目标，其余条款将继续完全有效。
