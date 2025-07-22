@@ -165,7 +165,7 @@ export default function TvPanel({
         }
       }
 
-      function normalizeTimestamp(ts: number | string): UTCTimestamp | string {
+      const normalizeTimestamp = (ts: number | string): UTCTimestamp | string => {
         if (typeof ts === 'string') {
           const tts = parseInt(ts, 10)
 
