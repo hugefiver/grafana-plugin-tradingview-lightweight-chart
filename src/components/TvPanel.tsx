@@ -107,7 +107,7 @@ export default function TvPanel({
             date = new Date(timestamp * 1000)
           }
 
-          return date.toLocaleString(navigator.language, {
+          return date.toLocaleString(window.navigator.language, {
             year: 'numeric',
             month: '2-digit',
             day: '2-digit',
